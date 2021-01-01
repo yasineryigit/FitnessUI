@@ -33,10 +33,31 @@
     </RelativeLayout>
 
     <TextView
+        android:id="@+id/fragment_popup_name_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Texttasdkasaksd"
+        android:text="NameTextNameText"
         android:layout_gravity="center"
         android:textSize="21sp"
+        android:textAlignment="center"
+        />
+
+    <TextView
+        android:id="@+id/fragment_popup_description_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DescriptionText"
+        android:layout_gravity="center"
+        android:textSize="21sp"
+        android:textAlignment="center"
+        />
+    <TextView
+        android:id="@+id/fragment_popup_calorie_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CalorieText"
+        android:layout_gravity="center"
+        android:textSize="21sp"
+        android:textAlignment="center"
         />
 </LinearLayout>

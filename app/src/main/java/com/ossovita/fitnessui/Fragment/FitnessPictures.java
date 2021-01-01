@@ -1,5 +1,6 @@
 package com.ossovita.fitnessui.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.ossovita.fitnessui.FitnessMove;
 import com.ossovita.fitnessui.FitnessPictureAdapter;
+import com.ossovita.fitnessui.PopupActivity;
 import com.ossovita.fitnessui.R;
 
 import java.sql.SQLOutput;
@@ -64,6 +66,8 @@ public class FitnessPictures extends Fragment implements FitnessPictureAdapter.M
     @Override
     public void MyListener(FitnessMove fitnessMove) {
         System.out.println("Fitness move: " + fitnessMove.getFitnessName());
-
+        //Üzerine tıklanan objeyi al PopupActivity'e götür
+         Intent intent = PopupActivity.newIntent(getContext(),fitnessMove);
+         startActivity(intent);
     }
 }
