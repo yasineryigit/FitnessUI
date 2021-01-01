@@ -13,7 +13,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.ossovita.fitnessui.FitnessMove;
+import com.ossovita.fitnessui.PopupActivity;
 import com.ossovita.fitnessui.R;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.Picasso;
 
 public class PopupFragment extends Fragment {
 
@@ -41,7 +44,25 @@ public class PopupFragment extends Fragment {
         calorieText = rootView.findViewById(R.id.fragment_popup_calorie_textview);
         imageView = rootView.findViewById(R.id.fragment_popup_imageview);
         progressBar = rootView.findViewById(R.id.fragment_popup_progressbar);
+        nameText.setText(fitnessMove.getFitnessName());
+        descriptionText.setText(fitnessMove.getFitnessDescription());
+        calorieText.setText(""+fitnessMove.getFitnessCalorie());
+        Picasso.get().load(fitnessMove.getFitnessPicture()).fit().centerCrop().into(imageView, new Callback() {
+            @Override
+            public void onSuccess() {
+                progressBar.setVisibility(View.INVISIBLE);
+            }
+
+            @Override
+            public void onError(Exception e) {
+                progressBar.setVisibility(View.VISIBLE);
+            }
+        });
 
         return super.onCreateView(inflater, container, savedInstanceState);
+    }
+
+    public static PopupFragment newInstance(){
+        return new PopupFragment();
     }
 }
